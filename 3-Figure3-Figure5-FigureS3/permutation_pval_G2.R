@@ -125,6 +125,8 @@ genome.wind <- rbind.data.frame(cent.wind, euc.wind, het.wind)
 
 genome.wind <- genome.wind %>% mutate(Ychrom = if_else(str_detect(chr, "Y"), "Y", "other"))
 
+write.table(genome.wind, file="g2_LongReadWindow_counts.txt", quote = F, row.names = F, sep="\t")
+
 
 ## jockey-3 counts 
 
@@ -398,6 +400,8 @@ het.wind$G2.count <- as.vector(overlaps)
 genome.wind <- rbind.data.frame(cent.wind, euc.wind, het.wind)
 
 genome.wind <- genome.wind %>% mutate(Ychrom = if_else(str_detect(chr, "Y"), "Y", "other"))
+
+write.table(genome.wind, file="g2_ShortReadWindow_counts.txt", quote = F, row.names = F, sep="\t")
 
 
 ## jockey-3 counts
