@@ -404,7 +404,7 @@ genome.wind <- genome.wind %>% mutate(Ychrom = if_else(str_detect(chr, "Y"), "Y"
 write.table(genome.wind, file="g2_ShortReadWindow_counts.txt", quote = F, row.names = F, sep="\t")
 
 
-## jockey-3 counts
+## jockey-3 counts for permutation test in PermTest.R
 
 
 cent.count <- genome.wind %>% filter(chromatin == "Centromere") %>% summarise(total = sum(G2.count)) %>% .$total
@@ -414,12 +414,12 @@ het.count <- genome.wind %>% filter(chromatin == "Heterochromatin") %>% summaris
 
 #### test 
 
-test3 <- permutation.test(genome.wind %>% filter(Ychrom=="other", chr!="tig00057289"), 10000, cent.count, euc.count, het.count)
+#test3 <- permutation.test(genome.wind %>% filter(Ychrom=="other", chr!="tig00057289"), 10000, cent.count, euc.count, het.count)
 
 
-test4 <- permutation.test2(genome.wind %>% filter(Ychrom=="other", chr!="tig00057289", chromatin != "Euchromatin"), 10000, cent.count, het.count)
+#test4 <- permutation.test2(genome.wind %>% filter(Ychrom=="other", chr!="tig00057289", chromatin != "Euchromatin"), 10000, cent.count, het.count)
 
 
-test5 <- permutation.test3(genome.wind %>% filter(Ychrom=="other", chr!="tig00057289", chromatin != "Heterochromatin"), 10000, cent.count, euc.count)
+#test5 <- permutation.test3(genome.wind %>% filter(Ychrom=="other", chr!="tig00057289", chromatin != "Heterochromatin"), 10000, cent.count, euc.count)
 
 
